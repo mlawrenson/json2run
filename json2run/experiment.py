@@ -55,6 +55,8 @@ class ExperimentRunner(Thread):
                 if self.batch["slurm_use"]:
                     # Prepend cmd with slurm_cmd
                     cmd = "%s %s %s" % (self.batch["slurm_cmd"], self.current.executable, parameters)
+                    # Be nice to slurm! :)
+                    sleep(1)
                 else:
                     cmd = "%s %s" % (self.current.executable, parameters)
 
